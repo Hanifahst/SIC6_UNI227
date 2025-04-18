@@ -1,0 +1,49 @@
+#include <Servo.h>
+
+Servo servo;
+const int trigPin = 9;
+const int echoPin = 8;
+
+long duration;
+int distance;
+int lastDistance = 0;
+bool isOpen = false;
+
+void setup() {
+  servo.attach(7);
+  servo.write(180); 
+  delay(2000);      
+
+  pinMode(trigPin, OUTPUT);
+  pinMode(echoPin, INPUT);
+  Serial.begin(9600); 
+}
+
+void loop() {
+  digitalWrite(trigPin, LOW);
+  delayMicroseconds(2);
+  digitalWrite(trigPin, HIGH);
+  delayMicroseconds(10);
+  digitalWrite(trigPin, LOW);
+
+  duration = pulseIn(echoPin, HIGH);
+  distance = duration * 0.034 / 2;
+
+  Serial.print("Distance: ");
+  Serial.print(distance);
+  Serial.println(" cm");
+
+  if (distance <= 15 && !isOpen) {
+    servo.write(0);   
+    isOpen = true;
+    delay(2000);      
+  }
+
+  if (distance > 20 && isOpen) {
+    servo.write(180);
+    isOpen = false;
+    delay(500);  
+  }
+
+  delay(200);
+}

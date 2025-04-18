@@ -39,7 +39,6 @@ Assignment Stage 3
   3. Sambungkan semua komponen sesuai skema rangkaian.
   4. Nyalakan sistem, arahkan sampah ke depan kamera, dan lihat respon tempat sampah.
 
-# 📸 Preview
-![Prototype](images/prototype.jpg)
-
+# NB:
+  - Karena ini masih berupa prototype --terkendala waktu, biaya, dan juga banyaknya bug, kami hanya mampu membuat program sederhana dari pengimplementasian smart-dustbin berintegrasikan sensor dan servo. harapannya, ini bisa menjadi pembelajaran kami kedepannya untuk lebih berinovasi dengan program yang ingin kami buat.
 ---
